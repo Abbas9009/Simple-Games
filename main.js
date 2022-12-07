@@ -2,15 +2,14 @@ let title = document.querySelector('.title');
 let turn = 'x';
 let squares = []; 
 function end(num1,num2,num3){
-		title.innerHTML = `${squares[num1]} winner`;
-		document.getElementById('item'+num1).style.background = '#000';
-		document.getElementById('item'+num2).style.background = '#000';
-		document.getElementById('item'+num3).style.background = '#000';
-		setInterval(function(){title.innerHTML += '.'},1000);
-		setTimeout(function(){location.reload()},4000)
+	title.innerHTML = `${squares[num1]} winner`;
+	document.getElementById('item'+num1).style.background = '#000';
+	document.getElementById('item'+num2).style.background = '#000';
+	document.getElementById('item'+num3).style.background = '#000';
+	setInterval(function p(){title.innerHTML += '.'},1000);
+	setTimeout(function l(){location.reload()},4000);
 }
-function winnner()
-{
+function winnner(){
 	for(let i = 1; i<10;i++){
 		squares[i] = document.getElementById('item' + i).innerHTML;
 	}
@@ -43,8 +42,16 @@ function winnner()
 	}
 	else if(squares[3] == squares[5] && squares[5] == squares[7] && squares[5] != ''){
 		end(3,5,7);
-	
+
 	}
+	else if(squares[1] != '' && squares[2] != '' && squares[3] != '' && squares[4] != '' && squares[5] != '' && squares[6] != '' && squares[7] != '' && squares[8] != '' && squares[9] != '' ){
+		drew();
+	}
+}
+function drew(){
+	title.innerHTML = `Drew`;
+	setInterval(function m(){title.innerHTML += '.'},1000);
+	setTimeout(function k(){location.reload()},4000);
 }
 function game(id){
 	let element = document.getElementById(id);
